@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+ 
+</head>
+<body>
+    <div class="container" style="width: 40%;">
+    <form action="index.php" method="POST">
+ 
+ 
+        <h1 style="padding: 60px; text-align:center;">Insert User Info</h1>
+        <div class="input-group input-group-sm mb-3">
+            <label for="">name</label>
+            <input type="text" name="name" class="form-control"  required>
+        </div>
+ 
+ 
+        <div class="input-group input-group-sm mb-3">
+            <label for="">student id</label>
+            <input type="text" name="stu_id" class="form-control"  required>
+        </div>
+ 
+ 
+        <H2>Static binding uses which information for binding?</H2>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox" aria-label="..." name="qus1" value="ans1">
+            <label>A - type.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus1" value="ans2">
+            <label>B - object.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus1" value="ans3">
+            <label>C - Both of the above.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus1" value="ans4">
+            <label>D - None of the above.</label>
+        </div>
+ 
+        <H2>When finally block gets executed?</H2>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox" aria-label="..." name="qus2" value="ans9">
+            <label>A - Always when try block get executed, no matter exception occured or not.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus2" value="ans5">
+            <label>B - Always when a method get executed, no matter exception occured or not</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus2" value="ans6">
+            <label>C - Always when a try block get executed, if exception do not occur.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus2" value="ans7">
+            <label>D - Only when exception occurs in try block code.</label>
+        </div>
+        <H2> Which of the following is true about public access modifier?</H2>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox" aria-label="..." name="qus3" value="ans9">
+            <label>A - Variables, methods and constructors which are declared public can be accessed by any class.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus3" value="ans5">
+            <label>B - Variables, methods and constructors which are declared public can be accessed by any class lying in same package.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus3" value="ans6">
+            <label>C - Variables, methods and constructors which are declared public in the superclass can be accessed only by its child class.</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input position-static" type="radio" id="blankCheckbox"  aria-label="..." name="qus3" value="ans7">
+            <label>D - None of the above.</label>
+        </div>
+ 
+ 
+ 
+        <button type="submit" name="save" class="btn btn-danger">save</button>
+ 
+</form>
+ 
+<?php 
+$mysqli = new mysqli('localhost', 'root', '', 'onlineedu')or die(mysqli_error($mysqli));
+ 
+    if(isset($_POST['save'])){
+        $name = $_POST['name'];
+        $stu_id = $_POST['stu_id'];
+        $res1 = $_POST['qus1'];
+        $res2 = $_POST['qus2'];
+        $res3 = $_POST['qus3'];
+ 
+        session_start();
+ 
+ 
+        $mysqli->query("INSERT INTO Information (name, stuentid, ans1, ans2, ans3) values('$name','$stu_id', '$res1', '$res2', '$res3')") or die($mysqli->error);
+ 
+ 
+ 
+ 
+ 
+    }
+ 
+?>
+    </div>
+</body>
+</html>
